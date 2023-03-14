@@ -1,16 +1,15 @@
 {
   "version": 2,
-  "name": "server-mern-project",
   "builds": [
     {
-      "src": "src/index.js",
+      "src": "index.js",
       "use": "@now/node"
     }
   ],
   "routes": [
     {
-      "src": "src/(.*)",
-      "dest": "src/index.js"
+      "src": "/(.*)",
+      "dest": "index.js"
     }
   ]
 }
