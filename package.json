@@ -5,8 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect --exec babel-node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:ci": "pnpm run -w build:ui && nuxt generate",
+    "build:ui": "pnpm --dir packages/ui build"
   },
+  "workspaces": [
+    "apps/**",
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
