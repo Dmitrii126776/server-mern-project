@@ -20,9 +20,15 @@ app.use(cors({
     credentials: true,
     origin: 'https://unrivaled-tarsier-a8961e.netlify.app'
 }))
-cors(app);
 
 routes(app)
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
 errorHandler(app);
 
 app.listen(PORT, () => {
