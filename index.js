@@ -18,7 +18,7 @@ logger(app)
 parseResponse(app)
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://unrivaled-tarsier-a8961e.netlify.app'
 }))
 cors(app);
 
