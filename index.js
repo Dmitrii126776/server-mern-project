@@ -6,11 +6,11 @@ import logger from "./src/modules/core/logger";
 import parseResponse from "./src/modules/core/parseResponse";
 import routes from "./src/modules/core/routes";
 import dotenv from "dotenv";
-import * as path from "path";
+
 
 const app = express();
 
-app.use('/favicon.ico', express.static(path.join(__dirname, 'favicon.ico')));
+
 const PORT = process.env.PORT || 5050;
 
 app.use(express.static('public'))
@@ -27,7 +27,7 @@ app.use(cors({
 routes(app)
 
 // Global error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res,) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
 });
@@ -38,4 +38,3 @@ app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
 });
 
-export default app;
