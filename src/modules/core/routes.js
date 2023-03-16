@@ -6,7 +6,7 @@ import animalsRouter from "../animals/AnimalsRouter";
 
 
 export default function routes(app) {
-    app.use('/', userRouter)
+   // app.use('/', userRouter)
     app.use('/statuses', statusesRouter)
     app.use('/tasks', tasksRouter)
     app.use('/cards', cardsRouter)
