@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 
 
 const app = express();
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT;
 
 app.use(express.static('public'))
 
