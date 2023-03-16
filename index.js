@@ -9,8 +9,6 @@ import dotenv from "dotenv";
 
 
 const app = express();
-
-
 const PORT = process.env.PORT || 5050;
 
 app.use(express.static('public'))
@@ -26,11 +24,6 @@ app.use(cors({
 
 routes(app)
 
-// Global error handler
-app.use((err, req, res,) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
 
 errorHandler(app);
 
