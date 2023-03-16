@@ -6,8 +6,11 @@ import logger from "./src/modules/core/logger";
 import parseResponse from "./src/modules/core/parseResponse";
 import routes from "./src/modules/core/routes";
 import dotenv from "dotenv";
+import * as path from "path";
 
 const app = express();
+
+app.use('/favicon.ico', express.static(path.join(__dirname, 'favicon.ico')));
 const PORT = process.env.PORT || 5050;
 
 app.use(express.static('public'))
