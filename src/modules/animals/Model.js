@@ -9,6 +9,7 @@ const animalSchema = new Schema({
     age: {type: String, required: true},
     breed: {type: String, required: true},
     description: {type: String, required: true},
+    paragraph: {type: String, required: true},
     mainPhoto: {type: String, required: true},
     photos: [{type: String, required: true}],
 })

@@ -8,6 +8,7 @@ export default function postAnimal(req,res){
         age:req.body.age,
         breed:req.body.breed,
         description:req.body.description,
+        paragraph :req.body.paragraph,
         mainPhoto:req.body.mainPhoto,
         photos:req.body.photos,
     })

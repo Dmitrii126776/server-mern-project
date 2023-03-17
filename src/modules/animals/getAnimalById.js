@@ -4,8 +4,8 @@ export default function getAnimalById(req, res) {
     Animal.findById(req.params.animalId)
         .then((animal) => {
             if (animal) {
-                const {_id, name, type, sex, age, breed, description, mainPhoto, photos} = animal;
-                res.json({_id, name, type, sex, age, breed, description, mainPhoto, photos})
+                const {_id, name, type, sex, age, breed, description, paragraph, mainPhoto, photos} = animal;
+                res.json({_id, name, type, sex, age, breed, description, paragraph, mainPhoto, photos})
             } else {
                 res.status(404).json({message: "Animal not found"});
             }
