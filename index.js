@@ -19,7 +19,7 @@ logger(app)
 parseResponse(app)
 app.use(cors({
     credentials: true,
-    origin: 'https://client-mern-auth.netlify.app'
+    origin: 'http://localhost:3000'
 }))
 
 routes(app)
@@ -31,3 +31,4 @@ app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
 });
 
+// 'https://client-mern-auth.netlify.app'
