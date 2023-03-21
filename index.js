@@ -18,12 +18,12 @@ dotenv.config()
 dbConnect()
 logger(app)
 parseResponse(app)
-cors(app);
+//cors(app);
 
-// app.use(cors({
-//     origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000',
-//     credentials: true,
-// }));
+app.use(cors({
+    origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000',
+    credentials: true,
+}));
 // app.use(cors({
 //     credentials: true,
 //     origin: 'https://client-mern-auth.netlify.app'
