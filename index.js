@@ -18,12 +18,12 @@ dotenv.config()
 dbConnect()
 logger(app)
 parseResponse(app)
-//cors(app);
+cors(app);
 
-app.use(cors({
-    origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000',
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000',
+//     credentials: true,
+// }));
 // app.use(cors({
 //     credentials: true,
 //     origin: 'https://client-mern-auth.netlify.app'
@@ -34,9 +34,12 @@ routes(app)
 
 errorHandler(app);
 
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
+app.listen(PORT || 5050, () => {
+    console.log(`Server running on port ${process.env.PORT || 5050}`);
 });
+// app.listen(PORT, () => {
+//     console.log(`Example app listening on port ${PORT}`);
+// });
 
 // 'https://client-mern-auth.netlify.app'
 // 'http://localhost:3000'
