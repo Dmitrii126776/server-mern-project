@@ -1,5 +1,6 @@
 import express from 'express';
-import cors from "cors";
+//import cors from "cors";
+import cors from "./src/modules/core/cors";
 import errorHandler from "./src/modules/core/errorHandler";
 import dbConnect from "./src/modules/core/db";
 import logger from "./src/modules/core/logger";
@@ -17,10 +18,16 @@ dotenv.config()
 dbConnect()
 logger(app)
 parseResponse(app)
+//cors(app);
+
 app.use(cors({
+    origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000',
     credentials: true,
-    origin: 'https://client-mern-auth.netlify.app'
-}))
+}));
+// app.use(cors({
+//     credentials: true,
+//     origin: 'https://client-mern-auth.netlify.app'
+// }))
 
 routes(app)
 
