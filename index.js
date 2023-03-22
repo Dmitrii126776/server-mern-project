@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5050;
 
 app.use(express.static('public'))
 
@@ -19,7 +19,8 @@ logger(app)
 parseResponse(app)
 app.use(cors({
     credentials: true,
-    origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000'
+    // origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000'
+    origin: 'http://localhost:3000' || 'https://client-mern-auth.netlify.app'
 }))
 
 routes(app)
