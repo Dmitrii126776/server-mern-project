@@ -20,8 +20,8 @@
 // }
 
 export default function cors(app) {
-    // const clientOrigin = 'https://client-mern-auth.netlify.app' || 'http://localhost:3000';
-    const clientOrigin = 'http://localhost:3000' || 'https://client-mern-auth.netlify.app';
+    const clientOrigin = 'https://client-mern-auth.netlify.app' || 'http://localhost:3000';
+    //const clientOrigin = 'http://localhost:3000' || 'https://client-mern-auth.netlify.app';
 
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', clientOrigin);
