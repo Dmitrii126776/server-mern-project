@@ -17,6 +17,7 @@ export default function updateNumber(req, res) {
     Numbers.find(req.body)
         .exec()
         .then(result => {
+            console.log(req.body)
             res.status(202).json('Numbers was updated')
         }).catch(err => {
         res.status(402).send('Numbers was not updated')
