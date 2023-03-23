@@ -5,7 +5,7 @@ export default function getNumber(req, res) {
         .find()
         .exec()
         .then(result => {
-            res.status(202).json(result[0].numberTask);
+            res.status(202).json(result);
         })
         .catch(err => {
             console.log(err);
