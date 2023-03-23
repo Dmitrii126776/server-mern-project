@@ -1,28 +1,27 @@
-// import Numbers from './Model';
-//
-// export default function updateNumber(req, res) {
-//     Numbers.updateOne({}, {numberTask: req.body.numberTask})
-//         .exec()
-//         .then(result => {
-//             res.status(202).json('Number was updated')
-//         })
-//         .catch(err => {
-//             res.status(402).send('Number was not updated')
-//         });
-// }
-
-
 import Numbers from './Model';
 
 export default function updateNumber(req, res) {
-    Numbers.find(req.body)
-        .exec()
+    Numbers.updateOne({}, {$set: {numberTask: req.body.numberTask}})
         .then(result => {
-            res.status(202).json('Numbers was updated')
-        }).catch(err => {
-        res.status(402).send('Numbers was not updated')
-    });
+            res.status(202).json('Number was updated')
+        })
+        .catch(err => {
+            res.status(402).send('Number was not updated')
+        });
 }
+
+
+// import Numbers from './Model';
+//
+// export default function updateNumber(req, res) {
+//     Numbers.find(req.body)
+//         .exec()
+//         .then(result => {
+//             res.status(202).json('Numbers was updated')
+//         }).catch(err => {
+//         res.status(402).send('Numbers was not updated')
+//     });
+// }
 
 //import Numbers from './Model';
 
