@@ -9,8 +9,8 @@ import dotenv from "dotenv";
 import cors from "./src/modules/core/cors";
 
 const app = express();
-//const PORT = process.env.PORT;
-const PORT = 5050
+const PORT = process.env.PORT;
+//const PORT = 5050
 
 app.use(express.static('public'))
 
