@@ -1,7 +1,7 @@
 import Numbers from './Model';
 
 export default function updateNumber(req, res) {
-    Numbers.findOneAndUpdate(req.body)
+    Numbers.find(req.body)
         .exec()
         .then(result => {
             res.status(202).json('Numbers was updated')
