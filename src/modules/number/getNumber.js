@@ -15,22 +15,3 @@ export default function getNumber(req, res) {
             console.log("Numbers get all END");
         })
 }
-
-
-// import Numbers from './Model';
-//
-// export default function getNumber() {
-//     return new Promise((resolve, reject) => {
-//         Numbers
-//             .findOne()
-//             .sort({numberTask: -1})
-//             .exec((err, result) => {
-//                 if (err) {
-//                     reject(err);
-//                 } else {
-//                     resolve(result);
-//                 }
-//             });
-//     });
-// }
-
