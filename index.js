@@ -21,7 +21,7 @@ parseResponse(app)
 //cors(app)
 app.use(cors({
     credentials: true,
-    origin: 'https://client-mern-auth.netlify.app'
+    origin: 'http://localhost:3000' || 'https://client-mern-auth.netlify.app'
 }))
 
 routes(app)
