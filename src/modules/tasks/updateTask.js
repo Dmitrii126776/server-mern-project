@@ -6,8 +6,12 @@ export default function updateTask(req, res) {
     Task.findByIdAndUpdate(taskId, req.body, {new: true})
         .exec()
         .then(result => {
-            res.status(202).json(result)
+            if (!result) {
+                return res.status(404).send('Task not found')
+            }
+            res.status(200).json(result)
         }).catch(err => {
-        res.status(402).send('Task was not updated')
+        console.error('Error updating task:', err);
+        res.status(500).send('Internal Server Error');
     });
 }
