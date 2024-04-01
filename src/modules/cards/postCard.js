@@ -13,7 +13,8 @@ export default function postCard(req, res) {
     newCard
         .save()
         .then(response => {
-            res.status(201).json(`${req.body.taskNumber} assignee to ${req.body.assignee}`)
+            // res.status(201).json(`${req.body.taskNumber} assignee to ${req.body.assignee}`)
+            res.status(201).json(response)
         }).catch(err => {
         res.status(402).json(`Task was not created`)
     })
