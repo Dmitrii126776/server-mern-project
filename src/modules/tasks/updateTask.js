@@ -3,7 +3,7 @@ import Task from './Model';
 export default function updateTask(req, res) {
     const taskId = req.params.taskId;
 
-    Task.findByIdAndUpdate(taskId, req.body)
+    Task.findByIdAndUpdate(taskId, req.body, {new: true})
         .exec()
         .then(result => {
             res.status(202).json(result)
