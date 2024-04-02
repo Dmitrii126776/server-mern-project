@@ -7,7 +7,8 @@ export default function deleteTask(req, res) {
         .exec()
         .then(result => {
             if (result.deletedCount === 1) {
-                res.status(200).json({ message: "Task deleted successfully", deletedTaskId: taskId });
+                res.status(204).send();
+                // res.status(200).json({ message: "Task deleted successfully", deletedTaskId: taskId });
             } else {
                 res.status(404).json({ message: "Task not found" });
             }
