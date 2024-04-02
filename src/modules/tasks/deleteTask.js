@@ -6,7 +6,8 @@ export default function deleteTask(req, res) {
     Task.deleteOne({_id: taskId})
         .exec()
         .then(result => {
-            res.status(202).json('Task was deleted');
+            // res.status(202).json('Task was deleted');
+            res.status(202).json(result);
         }).catch(err => {
         res.status(402).send('Task was not deleted');
     });
