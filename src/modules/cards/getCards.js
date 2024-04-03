@@ -5,12 +5,13 @@ export default function getCards(req, res) {
         .find()
         .exec()
         .then(result => {
-            res.status(202).json(result);
+            if (!result) {
+                return res.status(404).send('Tasks not found')
+            }
+            res.status(200).json(result);
         }).catch(err => {
         console.log(err);
-        res.status(400).json("Cards get all error")
-    })
-        .finally(() => {
-            console.log("Cards get all END");
-        })
+        console.error('Error updating task:', err);
+        res.status(500).send('Internal Server Error');
+    });
 }

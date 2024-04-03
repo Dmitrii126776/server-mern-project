@@ -6,8 +6,13 @@ export default function deleteCard(req, res) {
     Card.deleteOne({_id: cardId})
         .exec()
         .then(result => {
-            res.status(202).json('Card was deleted');
+            if (result.deletedCount === 1) {
+                res.status(204).send();
+                // res.status(200).json({ message: "Card deleted successfully", deletedCardId: cardId });
+            } else {
+                res.status(404).json({message: "Task not found"});
+            }
         }).catch(err => {
-        res.status(402).send('Card was not deleted');
+        res.status(500).json({error: err.message});
     });
 }

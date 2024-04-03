@@ -16,11 +16,9 @@ export default function postCard(req, res) {
             // res.status(201).json(`${req.body.taskNumber} assignee to ${req.body.assignee}`)
             res.status(201).json(response)
         }).catch(err => {
-        res.status(402).json(`Task was not created`)
-    })
-        .finally(() => {
-            console.log('END')
-        });
+        console.error(err);
+        res.status(500).json({error: "Internal Server Error"});
+    });
 }
 
 // import Card from './Model';
