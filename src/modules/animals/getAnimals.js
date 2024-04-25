@@ -2,6 +2,7 @@ import Animal from './Model';
 
 export default function getAnimals(req, res) {
     Animal.find()
+        .sort({_id: -1})
         .exec()
         .then(result => {
             res.status(202).json(result);
