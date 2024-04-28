@@ -28,13 +28,11 @@ export default async function userLogin(req, res) {
                         console.log(err);
                         res.sendStatus(500);
                     } else {
-                        res.cookie("token", token, {
-                            maxAge: 30 * 24 * 60 * 60 * 1000,
-                            httpOnly: true,
-                            headers: {
-                                Authorization: `Bearer ${token}`
-                            },
-                        })
+                        res
+                            .cookie("token", token, {
+                                maxAge: 30 * 24 * 60 * 60 * 1000,
+                                httpOnly: true,
+                            })
                             .json({
                                 id: userInfo._id,
                                 user: {
@@ -42,9 +40,8 @@ export default async function userLogin(req, res) {
                                     firstname: userInfo.firstname,
                                 },
                                 token: token,
-                                // Authorization: `Bearer ${token}`,
+                                Authorization: `Bearer ${token}`,
                             });
-                        // res.setHeader('Authorization', `Bearer ${token}`);
                         res.sendStatus(201).join('User successfully login')
                         console.log("User successfully logged in");
                     }
