@@ -40,8 +40,9 @@ export default async function userLogin(req, res) {
                                     firstname: userInfo.firstname,
                                 },
                                 token: token,
-                                Authorization: `Bearer ${token}`,
+                                // Authorization: `Bearer ${token}`,
                             });
+                        res.setHeader('Authorization', `Bearer ${token}`);
                         res.sendStatus(201).join('User successfully login')
                         console.log("User successfully logged in");
                     }
