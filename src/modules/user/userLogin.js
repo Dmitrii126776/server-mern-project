@@ -33,10 +33,7 @@ export default async function userLogin(req, res) {
                             httpOnly: true,
                             sameSite: 'strict',
                             secure: true,
-                            signed: true,
-                            headers: {
-                                Authorization: `Bearer ${token}`
-                            }
+                            signed: true
                         })
                             .json({
                                 id: userInfo._id,
