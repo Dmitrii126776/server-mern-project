@@ -28,11 +28,16 @@ export default async function userLogin(req, res) {
                         console.log(err);
                         res.sendStatus(500);
                     } else {
-                        res
-                            .cookie("token", token, {
-                                maxAge: 30 * 24 * 60 * 60 * 1000,
-                                httpOnly: true,
-                            })
+                        res.cookie("token", token, {
+                            maxAge: 30 * 24 * 60 * 60 * 1000,
+                            httpOnly: true,
+                            sameSite: 'strict',
+                            secure: true,
+                            signed: true,
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        })
                             .json({
                                 id: userInfo._id,
                                 user: {
