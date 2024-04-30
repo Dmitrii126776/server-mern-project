@@ -32,7 +32,7 @@ export default async function userLogin(req, res) {
                         res.cookie("token", token, {
                             maxAge: 30 * 24 * 60 * 60 * 1000,
                             httpOnly: true,
-                            sameSite: 'strict',
+                            sameSite: 'none',
                             secure: true,
                         });
                         res.status(201).json({
