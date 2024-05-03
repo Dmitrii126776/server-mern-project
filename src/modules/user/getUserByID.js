@@ -4,8 +4,8 @@ export default function getUserByID(req, res) {
     User.findById(req.params.userId)
         .then((user) => {
             if (user) {
-                const {_id, email, firstname} = user;
-                res.json({id: _id, email, firstname});
+                const {_id, email, firstname, avatar} = user;
+                res.json({id: _id, email, firstname, avatar});
             } else {
                 res.status(404).json({message: "User not found"});
             }
