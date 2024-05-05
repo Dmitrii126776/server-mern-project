@@ -10,8 +10,8 @@ export default async function userLogout(req, res, next) {
     try {
         const {refreshToken} = req.cookies;
         const token = await logout(refreshToken)
-        res.clearCookie('refreshToken')
-        // res.clearCookie('refreshToken', {httpOnly: true, sameSite: 'None', secure: true});
+        // res.clearCookie('refreshToken')
+        res.clearCookie('refreshToken', {httpOnly: true, sameSite: 'None', secure: true});
         return res.json(token)
     } catch (e) {
         console.log(e)
