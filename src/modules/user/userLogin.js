@@ -31,8 +31,8 @@ export default async function userLogin(req, res, next) {
         res.cookie('refreshToken', userData.refreshToken, {
             maxAge: 30 * 24 * 60 * 60 * 1000,
             httpOnly: true,
-            // secure: true,
-            // sameSite: 'None'
+            secure: true,
+            sameSite: 'None'
         })
         return res.json(userData)
     } catch (e) {

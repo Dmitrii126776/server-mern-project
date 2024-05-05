@@ -29,7 +29,12 @@ export default async function refreshToken(req, res, next) {
         if (userData.error) {
             return res.status(401).json({ error: userData.error });
         }
-        res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+        res.cookie('refreshToken', userData.refreshToken, {
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+        })
         return res.status(200).json(userData);
     } catch (e) {
         next(e)
