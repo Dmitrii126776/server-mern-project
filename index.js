@@ -24,7 +24,7 @@ app.use(cookieParser())
 //cors(app)
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000'
 }))
 
 routes(app)
@@ -36,6 +36,5 @@ app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
 });
 
-// origin: 'https://client-mern-auth.netlify.app' || 'http://localhost:3000'
 // 'https://client-mern-auth.netlify.app'
 // 'http://localhost:3000'
