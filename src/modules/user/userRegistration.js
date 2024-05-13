@@ -26,13 +26,13 @@ export default async function userRegistration(req, res, next) {
         const userData = await registration(email, password, firstname, avatar)
         if (userData.error) {
             // User already exists, return 401 Unauthorized status with the error message
-            return res.status(401).json({message: userData.error});
+            return res.status(409).json({message: userData.error});
         }
         res.cookie('refreshToken', userData.refreshToken, {
             maxAge: 30 * 24 * 60 * 60 * 1000,
             httpOnly: true,
-            // secure: true,
-            // sameSite: 'None'
+            secure: true,
+            sameSite: 'None'
         })
         return res.json(userData)
     } catch (e) {
