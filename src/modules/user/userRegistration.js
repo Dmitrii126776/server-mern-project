@@ -8,7 +8,7 @@ async function registration(email, password, firstname, avatar) {
     const candidate = await User.findOne({email})
     if (candidate) {
         // throw Error(`User with this ${email} already exists!`)
-        return {error: `User ${email} already exists!`};
+        return {error: `User email already exists!`};
     }
     const hashedPassword = await bcrypt.hashSync(password, 10);
     const user = await User.create({email, firstname, avatar, password: hashedPassword})
