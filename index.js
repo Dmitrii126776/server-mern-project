@@ -24,8 +24,23 @@ app.use(cookieParser())
 //cors(app)
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: true
 }))
+
+// const allowedOrigins = ['https://client-mern-auth.netlify.app', 'http://localhost:3000'];
+//
+// app.use(cors({
+//     credentials: true,
+//     origin: function (origin, callback) {
+//         // allow requests with no origin (like mobile apps or curl requests)
+//         if (!origin) return callback(null, true);
+//         if (allowedOrigins.indexOf(origin) === -1) {
+//             const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+//             return callback(new Error(msg), false);
+//         }
+//         return callback(null, true);
+//     }
+// }));
 
 routes(app)
 
